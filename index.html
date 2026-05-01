@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WUMPUS // Pathfinding Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Scanlines overlay -->
+  <div class="scanlines" aria-hidden="true"></div>
+  <!-- Ambient grid background -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <div class="app">
+
+
+    <header class="header">
+      <div class="header-left">
+        <span class="logo-bracket">[</span>
+        <span class="logo-text">WUMPUS</span>
+        <span class="logo-bracket">]</span>
+        <span class="logo-sub">KNOWLEDGE-BASED PATHFINDING AGENT</span>
+      </div>
+      <div class="header-right">
+        <span class="version">v2.1 // PROPOSITIONAL LOGIC ENGINE</span>
+      </div>
+    </header>
+
+    
+    <main class="layout">
+
+   
+      <aside class="panel panel-left">
+
+        <section class="panel-section">
+          <h2 class="section-title">GRID CONFIG</h2>
+          <div class="control-row">
+            <label class="ctrl-label">ROWS</label>
+            <input id="in-rows" type="number" class="ctrl-input" value="4" min="2" max="10" />
+          </div>
+          <div class="control-row">
+            <label class="ctrl-label">COLS</label>
+            <input id="in-cols" type="number" class="ctrl-input" value="4" min="2" max="10" />
+          </div>
+          <button id="btn-new" class="btn btn-primary">NEW EPISODE</button>
+        </section>
+
+        <section class="panel-section">
+          <h2 class="section-title">AGENT CONTROL</h2>
+          <button id="btn-step" class="btn btn-secondary">STEP</button>
+          <button id="btn-run"  class="btn btn-secondary">AUTO RUN</button>
+          <button id="btn-reveal" class="btn btn-ghost">REVEAL MAP</button>
+          <div class="speed-row">
+            <label class="ctrl-label">SPEED</label>
+            <input id="speed-slider" type="range" min="100" max="950" value="700" class="slider" />
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <h2 class="section-title">METRICS</h2>
+          <div class="metric-grid">
+            <div class="metric">
+              <span class="metric-label">STATUS</span>
+              <span id="meta-status" class="status-badge status-active">● ACTIVE</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">POSITION</span>
+              <span id="meta-pos" class="metric-value">(0, 0)</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">INFERENCE STEPS</span>
+              <span id="meta-steps" class="metric-value metric-accent">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">PERCEPTS</span>
+              <div id="meta-percepts" class="percept-row"><span class="percept-none">—</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <h2 class="section-title">LEGEND</h2>
+          <div class="legend">
+            <div class="legend-item"><span class="swatch sw-agent"></span> Agent Position</div>
+            <div class="legend-item"><span class="swatch sw-visited"></span> Visited (Safe)</div>
+            <div class="legend-item"><span class="swatch sw-inferred"></span> KB-Inferred Safe</div>
+            <div class="legend-item"><span class="swatch sw-unknown"></span> Unknown</div>
+            <div class="legend-item"><span class="swatch sw-danger"></span> KB-Inferred Danger</div>
+            <div class="legend-item"><span class="swatch sw-pit"></span> Pit / Wumpus</div>
+          </div>
+        </section>
+
+      </aside>
+
+      
+      <section class="panel panel-center">
+        <div class="grid-header">
+          <h2 class="section-title">ENVIRONMENT</h2>
+          <span class="grid-subtitle">WUMPUS WORLD // PROPOSITIONAL INFERENCE</span>
+        </div>
+        <div class="grid-wrapper">
+          <div id="grid" class="grid"></div>
+        </div>
+      </section>
+
+      <!-- ── Right panel: inference log ── -->
+      <aside class="panel panel-right">
+        <h2 class="section-title">INFERENCE LOG</h2>
+        <div id="log" class="log"></div>
+      </aside>
+
+    </main>
+
+    <!-- ── Footer ── -->
+    <footer class="footer">
+      <span>RESOLUTION REFUTATION ENGINE // CNF CONVERSION // KB ENTRIESOPENS PROPOSITIONAL LOGIC</span>
+    </footer>
+
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
