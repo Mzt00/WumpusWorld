@@ -8,7 +8,7 @@ A browser-based implementation of the classic **Wumpus World** AI problem, featu
 
 ## 🎮 Demo
 
-[**Live Demo →**](https://wumpus-world-rosy.vercel.app)
+[**Live Demo →**](https://wumpus-world-five.vercel.app/)
 
 ---
 
